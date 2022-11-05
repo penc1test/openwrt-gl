@@ -60,10 +60,15 @@ jobs:
       - name: Add packages
         run: |
           cd openwrt-18.06
-          git clone --depth=1 https://github.com/penc1test/openwrt-tailscale.git ./package/tailscale
-          git clone --depth=1 https://github.com/mwarning/zerotier-openwrt.git ./package/zerotier
-          git clone --depth=1 https://github.com/lylus/luci-app-zerotier.git ./package/luci-app-zerotier
+          git clone --depth=1 https://github.com/fumiama/openwrt-passwall.git ./package/passwall
           git clone --depth=1 https://github.com/fumiama/openwrt-packages.git ./package/useful
+          git clone --depth=1 https://github.com/fumiama/opackages.git ./package/fumiama
+          git clone --depth=1 https://github.com/fumiama/openwrt-upx.git ./package/fumiama/upx
+          git clone --depth=1 https://github.com/fumiama/luci-theme-rosy.git ./package/fumiama/luci-theme-rosy
+          git clone --depth=1 https://github.com/fumiama/lede.git package/leana
+          mv package/leana/package/lean package/
+          mv -n package/leana/package/libs/* package/libs/
+          rm -rf package/leana
 
       - name: Update feeds
         run: |
